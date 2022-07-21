@@ -12378,7 +12378,7 @@ on_demand_decode (const char *b, size_t length, LogPacketType type_id, PyObject*
             offset += _decode_gnss_gal_payload(b, offset, length, result);
             break;         
         default:
-	    printf("Not a valid case statement in log_packet.cpp\n");
+	        printf("Not a valid case statement in log_packet.cpp\n");
             break;
     };
 
@@ -12434,7 +12434,6 @@ decode_log_packet(const char *b, size_t length, bool skip_decoding) {
             ARRAY_SIZE(LogPacketTypeID_To_Name, ValueName),
             "Unsupported");
 
-    printf("found %d type\n", type_id);
 
     /*
     if (skip_decoding) {    // skip further decoding
@@ -12448,8 +12447,6 @@ decode_log_packet(const char *b, size_t length, bool skip_decoding) {
     }
     */
 
-    printf("%s\n", b);
-    printf("%d\n", length);
     on_demand_decode(b + offset, length - offset, type_id, result);
 
     return result;
